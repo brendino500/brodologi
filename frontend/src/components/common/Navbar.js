@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
-import clsx from 'clsx'
 import {
   AppBar,
   Toolbar,
   Typography,
   IconButton,
   Drawer,
-  List,
-  ListItem,
-  ListItemText,
   Button,
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import useStyles from './styles/navbarStyles'
+
+import LeftDrawer from './LeftDrawer'
 
 const Navbar = () => {
   const classes = useStyles()
@@ -23,6 +21,10 @@ const Navbar = () => {
     bottom: false,
     right: false,
   })
+
+  const onLeftDrawClose = () => {
+    setState({ ...state, left: false })
+  }
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -60,7 +62,8 @@ const Navbar = () => {
           <IconButton>
             <ShoppingCartIcon className={classes.icon} />
           </IconButton>
-          <Drawer
+          <LeftDrawer isOpen={state['left']} onClose={onLeftDrawClose} />
+          {/* <Drawer
             anchor={'left'}
             open={state['left']}
             onClose={toggleDrawer('left', false)}
@@ -72,7 +75,7 @@ const Navbar = () => {
               <Button className={classes.sideMenu}>Omkring</Button>
               <Button className={classes.sideMenu}>Lokaliser</Button>
             </div>
-          </Drawer>
+          </Drawer> */}
         </Toolbar>
       </AppBar>
     </div>

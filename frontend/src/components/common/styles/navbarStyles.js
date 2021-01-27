@@ -21,13 +21,21 @@ const useStyles = makeStyles((theme) => ({
   buttonList: {
     display: 'flex',
     flexDirection: 'column',
-    width: '30vw',
+    width: '26vw',
+    marginTop: '40vh',
   },
   sideMenu: {
     fontFamily: 'Montserrat',
     textTransform: 'uppercase',
     fontSize: '3vh',
     letterSpacing: 3,
+  },
+  leftDrawer: {
+    display: 'flex',
+    flexGrow: 1,
+    justify: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f4f4f2',
   },
 }))
 export default useStyles
