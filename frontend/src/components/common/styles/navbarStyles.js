@@ -37,5 +37,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     backgroundColor: '#f4f4f2',
   },
+  rightDrawer: {},
 }))
 export default useStyles

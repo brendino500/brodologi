@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Drawer,
-  Button,
-} from '@material-ui/core'
+import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import useStyles from './styles/navbarStyles'
 
 import LeftDrawer from './LeftDrawer'
+import RightDrawer from './RightDrawer'
 
 const Navbar = () => {
   const classes = useStyles()
@@ -24,6 +18,10 @@ const Navbar = () => {
 
   const onLeftDrawClose = () => {
     setState({ ...state, left: false })
+  }
+
+  const onRightDrawClose = () => {
+    setState({ ...state, right: false })
   }
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -59,23 +57,14 @@ const Navbar = () => {
           <Typography variant="h6" className={classes.title}>
             Brødologi
           </Typography>
-          <IconButton>
+          <IconButton
+            aria-label="show cart items"
+            onClick={toggleDrawer('right', true)}
+          >
             <ShoppingCartIcon className={classes.icon} />
           </IconButton>
           <LeftDrawer isOpen={state['left']} onClose={onLeftDrawClose} />
-          {/* <Drawer
-            anchor={'left'}
-            open={state['left']}
-            onClose={toggleDrawer('left', false)}
-            className={classes.LeftDrawer}
-          >
-            <div className={classes.buttonList}>
-              <Button className={classes.sideMenu}>Hjem</Button>
-              <Button className={classes.sideMenu}>Butikk</Button>
-              <Button className={classes.sideMenu}>Omkring</Button>
-              <Button className={classes.sideMenu}>Lokaliser</Button>
-            </div>
-          </Drawer> */}
+          <RightDrawer isOpen={state['right']} onClose={onRightDrawClose} />
         </Toolbar>
       </AppBar>
     </div>
