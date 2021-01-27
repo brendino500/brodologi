@@ -1,5 +1,11 @@
+import Home from './components/common/Home'
+
 function App() {
-  return <h1>Brødologi</h1>
+  return (
+    <>
+      <Home />
+    </>
+  )
 }
 
 export default App
