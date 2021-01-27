@@ -18,5 +18,16 @@ const useStyles = makeStyles((theme) => ({
     color: '#f4f4f2',
     fontSize: '5vh',
   },
+  buttonList: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '30vw',
+  },
+  sideMenu: {
+    fontFamily: 'Montserrat',
+    textTransform: 'uppercase',
+    fontSize: '3vh',
+    letterSpacing: 3,
+  },
 }))
 export default useStyles

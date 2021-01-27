@@ -1,14 +1,39 @@
-import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
+import React, { useState } from 'react'
+import clsx from 'clsx'
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Button,
+} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import useStyles from './styles/navbarStyles'
 
 const Navbar = () => {
   const classes = useStyles()
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  })
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return
+    }
+
+    setState({ ...state, [anchor]: open })
+  }
 
   return (
     <div className={classes.root}>
@@ -25,6 +50,7 @@ const Navbar = () => {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            onClick={toggleDrawer('left', true)}
           >
             <MenuIcon />
           </IconButton>
@@ -34,6 +60,19 @@ const Navbar = () => {
           <IconButton>
             <ShoppingCartIcon className={classes.icon} />
           </IconButton>
+          <Drawer
+            anchor={'left'}
+            open={state['left']}
+            onClose={toggleDrawer('left', false)}
+            className={classes.LeftDrawer}
+          >
+            <div className={classes.buttonList}>
+              <Button className={classes.sideMenu}>Hjem</Button>
+              <Button className={classes.sideMenu}>Butikk</Button>
+              <Button className={classes.sideMenu}>Omkring</Button>
+              <Button className={classes.sideMenu}>Lokaliser</Button>
+            </div>
+          </Drawer>
         </Toolbar>
       </AppBar>
     </div>
