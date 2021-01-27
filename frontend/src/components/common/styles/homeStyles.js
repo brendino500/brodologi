@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: 'cover',
       backgroundAttachment: 'fixed',
       height: '100%',
-      [theme.breakpoints.between('xs', 'sm')]: {},
     },
   },
   title: {
