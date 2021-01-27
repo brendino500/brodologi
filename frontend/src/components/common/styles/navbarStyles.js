@@ -23,12 +23,16 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     width: '26vw',
     marginTop: '40vh',
+    textAlign: 'center',
   },
   sideMenu: {
     fontFamily: 'Montserrat',
     textTransform: 'uppercase',
     fontSize: '3vh',
     letterSpacing: 3,
+  },
+  link: {
+    textDecoration: 'none',
   },
   leftDrawer: {
     display: 'flex',
