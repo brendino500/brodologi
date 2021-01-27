@@ -9,6 +9,14 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    color: '#f4f4f2',
+    fontFamily: 'Montserrat',
+    textTransform: 'uppercase',
+    letterSpacing: 6,
+  },
+  icon: {
+    color: '#f4f4f2',
+    fontSize: '5vh',
   },
 }))
 export default useStyles

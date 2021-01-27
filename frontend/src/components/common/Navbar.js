@@ -15,7 +15,7 @@ const Navbar = () => {
       <AppBar
         position="fixed"
         style={{
-          backgroundColor: '#C1BFBB',
+          backgroundColor: 'transparent',
           boxShadow: '0px 0px 0px 0px',
         }}
       >
@@ -32,7 +32,7 @@ const Navbar = () => {
             Brødologi
           </Typography>
           <IconButton>
-            <ShoppingCartIcon />
+            <ShoppingCartIcon className={classes.icon} />
           </IconButton>
         </Toolbar>
       </AppBar>
