@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core'
+import React, { useState, useContext } from 'react'
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Badge,
+} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import useStyles from './styles/navbarStyles'
 
+import { BasketContext } from '../../context/basketContext'
 import LeftDrawer from './LeftDrawer'
 import RightDrawer from './RightDrawer'
 
 const Navbar = () => {
   const classes = useStyles()
+  const [basket, setBasket] = useContext(BasketContext)
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -62,7 +69,13 @@ const Navbar = () => {
             aria-label="show cart items"
             onClick={toggleDrawer('right', true)}
           >
-            <ShoppingCartIcon className={classes.icon} />
+            <Badge
+              badgeContent={basket.length}
+              className={classes.cartIcon}
+              color="secondary"
+            >
+              <ShoppingCartIcon className={classes.icon} />
+            </Badge>
           </IconButton>
           <LeftDrawer
             isOpen={state['left']}

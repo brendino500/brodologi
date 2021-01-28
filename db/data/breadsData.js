@@ -36,11 +36,6 @@ module.exports = [
     price: 55,
   },
   {
-    name: 'Snurrer med Mandelfyll',
-    image: 'https://i.ibb.co/pLJSWvt/SNURRER-MED-MANDELFYLL.jpg',
-    price: 55,
-  },
-  {
     name: 'Kanelboller med Karamelliserte Epler',
     image: 'https://i.ibb.co/LkPsX0b/KANELBOLLER-MED-KARAMELLISERTE-EPLER.jpg',
     price: 55,

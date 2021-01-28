@@ -12,7 +12,7 @@ import {
   Grid,
 } from '@material-ui/core'
 
-import { BasketContext } from '../../context/BasketContext'
+import { BasketContext } from '../../context/basketContext'
 import useStyles from './styles/breadCardIndexStyles'
 
 const BreadCardIndex = ({ _id, image, name, price }) => {
