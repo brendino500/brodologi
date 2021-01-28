@@ -1,5 +1,6 @@
 import React from 'react'
 import { Typography } from '@material-ui/core'
+import image from '../../assets/headshot.png'
 
 import useStyles from './styles/aboutStyles'
 
@@ -7,16 +8,29 @@ export default function About() {
   const classes = useStyles()
   return (
     <div className={classes.container}>
-      <div>
-        <Typography>
-          Hello! We are brother a brother a sister duo and have absolutely loved
-          baking with our parents and grandparents since we were really young.
-          We've taken our parents knowledge and skills and wanted to share our
-          creations with you. Brødology was first created in our family kitchen
-          growing up and it's been our passion ever since. We hope you enjoy
-          eating these treats as much as we've enjoyed baking them! Love Jonas &
-          Sofia
-        </Typography>
+      <div className={classes.textWithPhoto}>
+        <img src={image} alt="brothers" className={classes.image} />
+        <div className={classes.textContainer}>
+          <Typography>
+            <Typography variant="h3" className={classes.title}>
+              Hallo!
+            </Typography>
+            <Typography className={classes.text}>
+              Vi er bror, bror, søsterduo og har absolutt elsket å bake sammen
+              med foreldrene og besteforeldrene siden vi var veldig små. Vi har
+              tatt foreldrene våre kunnskap og ferdigheter og ønsket å dele
+              kreasjonene våre med deg. Brødology ble først opprettet i vårt
+              familiekjøkken i oppveksten, og det har vært vår lidenskap siden.
+            </Typography>
+            <Typography className={classes.text}>
+              Vi håper du liker å spise disse godbitene like mye som vi har likt
+              å bake dem!
+            </Typography>
+            <Typography className={classes.text}>
+              Elsker Jonas og Aksel
+            </Typography>
+          </Typography>
+        </div>
       </div>
     </div>
   )
