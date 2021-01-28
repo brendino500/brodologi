@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
     fontSize: '3vh',
     letterSpacing: 3,
+    color: '#495464',
   },
   link: {
     textDecoration: 'none',
@@ -43,6 +44,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     justify: 'center',
     alignItems: 'center',
+  },
+  drawerPaperLeft: {
     backgroundColor: '#495464',
   },
   rightDrawer: {},

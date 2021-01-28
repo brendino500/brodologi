@@ -64,7 +64,13 @@ const Navbar = () => {
           >
             <ShoppingCartIcon className={classes.icon} />
           </IconButton>
-          <LeftDrawer isOpen={state['left']} onClose={onLeftDrawClose} />
+          <LeftDrawer
+            isOpen={state['left']}
+            onClose={onLeftDrawClose}
+            classes={{
+              paper: classes.drawerPaperLeft,
+            }}
+          />
           <RightDrawer isOpen={state['right']} onClose={onRightDrawClose} />
         </Toolbar>
       </AppBar>

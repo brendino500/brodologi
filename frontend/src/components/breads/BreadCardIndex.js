@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Card,
@@ -12,24 +12,30 @@ import {
   Grid,
 } from '@material-ui/core'
 
+import { BasketContext } from '../../context/BasketContext'
 import useStyles from './styles/breadCardIndexStyles'
 
-const BreadCardIndex = (props) => {
+const BreadCardIndex = ({ _id, image, name, price }) => {
   const classes = useStyles()
+  const [basket, setBasket] = useContext(BasketContext)
+
+  const handleAddToBasket = () => {
+    const bread = { name, price, _id, image }
+    setBasket((curr) => [...curr, bread])
+    console.log(`added ${name} to basket`)
+  }
 
   return (
     <div>
       <Card className={classes.root}>
         <CardActionArea>
-          <Link to={`/breads/${props._id}`} className={classes.link}>
-            <CardMedia className={classes.media} image={props.image} />
+          <Link to={`/breads/${_id}`} className={classes.link}>
+            <CardMedia className={classes.media} image={image} />
             <CardContent className={classes.paper}>
               <Typography className={classes.text} gutterBottom>
-                {props.name}
+                {name}
               </Typography>
-              <Typography className={classes.price}>
-                {props.price} KR
-              </Typography>
+              <Typography className={classes.price}>{price} KR</Typography>
             </CardContent>
           </Link>
         </CardActionArea>
@@ -39,7 +45,7 @@ const BreadCardIndex = (props) => {
               fullWidth
               className={classes.button}
               size="small"
-              // onClick={handleAddToBasket}
+              onClick={handleAddToBasket}
             >
               Add to Basket
             </Button>
