@@ -5,13 +5,13 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
   },
   title: {
-    fontFamily: 'Playfair Display',
+    fontFamily: 'Montserrat',
     fontWeight: 'bold',
     fontSize: 35,
     letterSpacing: 7,
     textTransform: 'uppercase',
     textAlign: 'center',
-    color: '#1A3400',
+    color: '#495464',
     marginBottom: '6%',
     [theme.breakpoints.between('xs', 'sm')]: {
       fontSize: 25,

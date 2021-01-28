@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    color: '#365902',
-    fontFamily: 'Open Sans',
+    color: '#495464',
+    fontFamily: 'Montserrat',
     fontWeight: 'bold',
     marginBottom: '-10%',
     letterSpacing: 1,
@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   text: {
-    color: '#1A3400',
-    fontFamily: 'Playfair Display',
+    color: '#495464',
+    fontFamily: 'Montserrat',
     fontSize: 20,
     width: 250,
     [theme.breakpoints.between('xs', 'sm')]: {
@@ -35,15 +35,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   price: {
-    color: '#1A3400',
-    fontFamily: 'Playfair Display',
+    color: '#495464',
+    fontFamily: 'Montserrat',
     fontWeight: 'bold',
     [theme.breakpoints.between('xs', 'sm')]: {
       fontSize: 16,
     },
   },
   paper: {
-    backgroundColor: '#EBE8E5',
+    backgroundColor: '#e8e8e8',
     height: 80,
     [theme.breakpoints.between('xs', 'sm')]: {
       height: 40,
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
   snackbar: {
     color: '#EBE8E5',
-    fontFamily: 'Playfair Display',
+    fontFamily: 'Montserrat',
     backgroundColor: '#497702',
     textAlign: 'center',
   },
