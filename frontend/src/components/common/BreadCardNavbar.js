@@ -36,17 +36,18 @@ export default function BreadCardNavbar() {
     }
     setOpen(false)
   }
+  console.log(itemsInBasket)
 
   return (
     <Container className={classes.root}>
-      {itemsInBasket.map((bread, breadIndex) => {
+      {basketState.map((bread, breadIndex) => {
         if (bread === undefined) {
           console.log('Bread ID not found')
         } else {
           return (
             <>
               <Link
-                to={`/breads/${bread._id}`}
+                to={`/butikk/${bread._id}`}
                 className={classes.link}
                 key={breadIndex}
               >

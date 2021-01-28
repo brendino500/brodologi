@@ -14,21 +14,21 @@ import { showSingleBread } from '../../lib/api'
 export default function BreadIndividual(props) {
   const classes = useStyles()
   const [data, setData] = React.useState()
-  const [basketState, setBasketState] = React.useContext(BasketContext)
+  const [basket, setBasket] = useContext(BasketContext)
   const [open, setOpen] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
       const res = await showSingleBread(props.computedMatch.params.id)
-      console.log(res)
       setData(res.data)
     }
     getData()
   }, [props.computedMatch.params.id])
 
   const handleAddToBasket = () => {
-    setBasketState(basketState.concat([props.computedMatch.params.id]))
+    setBasket((curr) => [...curr, data])
     setOpen(true)
+    console.log(`added ${data.name} to basket`)
   }
 
   const handleClose = (event, reason) => {
@@ -60,7 +60,7 @@ export default function BreadIndividual(props) {
               variant="contained"
               onClick={handleAddToBasket}
             >
-              Add to Basket
+              Legg i Handlekurv
             </Button>
             <Snackbar
               ContentProps={{
