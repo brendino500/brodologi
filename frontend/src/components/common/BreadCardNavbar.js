@@ -30,6 +30,13 @@ export default function BreadCardNavbar() {
     newBasketState.splice(newBasketState.indexOf(breadID), 1)
   }
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setOpen(false)
+  }
+
   return (
     <Container className={classes.root}>
       {itemsInBasket.map((bread, breadIndex) => {
@@ -71,21 +78,21 @@ export default function BreadCardNavbar() {
                   </div>
                 </Card>
               </Link>
-              {/* <Snackbar
-                  ContentProps={{
-                    classes: {
-                      root: classes.snackbar,
-                    },
-                  }}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'center',
-                  }}
-                  open={open}
-                  autoHideDuration={3000}
-                  onClose={handleClose}
-                  message={`You have removed ${plant.name} from your basket`}
-                /> */}
+              <Snackbar
+                ContentProps={{
+                  classes: {
+                    root: classes.snackbar,
+                  },
+                }}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                open={open}
+                autoHideDuration={3000}
+                onClose={handleClose}
+                message={`You have removed ${bread.name} from your basket`}
+              />
             </>
           )
         }

@@ -38,7 +38,7 @@ const BreadCardIndex = ({ _id, image, name, price }) => {
     <div>
       <Card className={classes.root}>
         <CardActionArea>
-          <Link to={`/breads/${_id}`} className={classes.link}>
+          <Link to={`/butikk/${_id}`} className={classes.link}>
             <CardMedia className={classes.media} image={image} />
             <CardContent className={classes.paper}>
               <Typography className={classes.text} gutterBottom>
