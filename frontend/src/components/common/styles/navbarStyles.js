@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     color: '#f4f4f2',
     fontSize: '5vh',
+    position: 'absolute',
   },
   buttonList: {
     display: 'flex',
