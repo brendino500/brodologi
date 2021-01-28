@@ -3,11 +3,12 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 10,
+    marginTop: '10vh',
   },
   title: {
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
-    fontSize: 35,
+    fontSize: '3em',
     letterSpacing: 7,
     textTransform: 'uppercase',
     textAlign: 'center',

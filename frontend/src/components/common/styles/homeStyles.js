@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: 8,
     fontSize: '15vh',
     textTransform: 'uppercase',
-    color: '#f4f4f2',
+    color: '#495464',
     marginTop: '70vh',
   },
 }))

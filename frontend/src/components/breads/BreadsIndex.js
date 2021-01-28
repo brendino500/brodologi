@@ -1,5 +1,6 @@
 import React from 'react'
 import { Typography, Container, Grid } from '@material-ui/core'
+import Slide from 'react-reveal/Slide'
 
 import { getAllBreads } from '../../lib/api'
 import BreadCardIndex from './BreadCardIndex'
@@ -27,16 +28,18 @@ export default function BreadsIndex() {
         <b>Butikk</b>
       </Typography>
       <Container>
-        <Grid
-          container
-          direction="row"
-          justify="space-evenly"
-          alignItems="center"
-        >
-          {data.map((bread) => (
-            <BreadCardIndex key={bread._id} {...bread} />
-          ))}
-        </Grid>
+        <Slide bottom>
+          <Grid
+            container
+            direction="row"
+            justify="space-evenly"
+            alignItems="center"
+          >
+            {data.map((bread) => (
+              <BreadCardIndex key={bread._id} {...bread} />
+            ))}
+          </Grid>
+        </Slide>
       </Container>
     </div>
   )

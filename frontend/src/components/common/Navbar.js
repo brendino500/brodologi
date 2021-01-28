@@ -41,7 +41,7 @@ const Navbar = () => {
       <AppBar
         position="fixed"
         style={{
-          backgroundColor: 'transparent',
+          backgroundColor: '#EBE8E5',
           boxShadow: '0px 0px 0px 0px',
         }}
       >
@@ -53,7 +53,7 @@ const Navbar = () => {
             aria-label="menu"
             onClick={toggleDrawer('left', true)}
           >
-            <MenuIcon />
+            <MenuIcon className={classes.burgerIcon} />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             Brødologi
