@@ -1,6 +1,8 @@
 import React from 'react'
-import useStyles from './styles/navbarStyles'
 import { Drawer, Button } from '@material-ui/core'
+
+import BreadCardNavbar from './BreadCardNavbar'
+import useStyles from './styles/navbarStyles'
 
 export default function RightDrawer({ isOpen, onClose }) {
   const classes = useStyles()
@@ -14,6 +16,7 @@ export default function RightDrawer({ isOpen, onClose }) {
     >
       <div className={classes.buttonList}>
         <h1>Basket</h1>
+        <BreadCardNavbar />
       </div>
     </Drawer>
   )
