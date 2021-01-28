@@ -18,18 +18,27 @@ import useStyles from './styles/breadCardIndexStyles'
 const BreadCardIndex = ({ _id, image, name, price }) => {
   const classes = useStyles()
   const [basket, setBasket] = useContext(BasketContext)
+  const [open, setOpen] = React.useState(false)
 
   const handleAddToBasket = () => {
     const bread = { name, price, _id, image }
     setBasket((curr) => [...curr, bread])
+    setOpen(true)
     console.log(`added ${name} to basket`)
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setOpen(false)
   }
 
   return (
     <div>
       <Card className={classes.root}>
         <CardActionArea>
-          <Link to={`/breads/${_id}`} className={classes.link}>
+          <Link to={`/butikk/${_id}`} className={classes.link}>
             <CardMedia className={classes.media} image={image} />
             <CardContent className={classes.paper}>
               <Typography className={classes.text} gutterBottom>
@@ -47,23 +56,20 @@ const BreadCardIndex = ({ _id, image, name, price }) => {
               size="small"
               onClick={handleAddToBasket}
             >
-              Add to Basket
+              Legg i Handlekurv
             </Button>
-            {/* <Snackbar
+            <Snackbar
               ContentProps={{
                 classes: {
                   root: classes.snackbar,
                 },
               }}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-              }}
+              anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
               open={open}
               autoHideDuration={3000}
               onClose={handleClose}
-              message={`You have added ${props.name} to your basket`}
-            /> */}
+              message={`Du har lagt til ${name} i kurven din`}
+            />
           </Grid>
         </CardActions>
       </Card>

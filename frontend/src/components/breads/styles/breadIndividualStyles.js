@@ -1,0 +1,83 @@
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    [theme.breakpoints.between('xs', 'sm')]: {
+      marginLeft: '7%',
+      marginTop: '-7%',
+    },
+  },
+  image: {
+    height: 400,
+    [theme.breakpoints.between('xs', 'sm')]: {
+      height: 275,
+    },
+  },
+  breadName: {
+    fontFamily: 'Montserrat',
+    fontSize: 26,
+    letterSpacing: 2,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    width: 300,
+    color: '#495464',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      fontSize: 16,
+    },
+  },
+
+  text: {
+    fontFamily: 'Montserrat',
+    fontSize: 16,
+    width: 300,
+    color: '#495464',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      fontSize: 13,
+      width: 275,
+    },
+  },
+  price: {
+    fontFamily: 'Montserrat',
+    fontWeight: 'bold',
+    letterSpacing: 2,
+    color: '#495464',
+    fontSize: 20,
+    [theme.breakpoints.between('xs', 'sm')]: {
+      fontSize: 14,
+    },
+  },
+  button: {
+    color: '#f4f4f2',
+    fontFamily: 'Montserrat',
+    backgroundColor: '#495464',
+    fontWeight: 'bold',
+    letterSpacing: 2,
+    [theme.breakpoints.between('xs', 'sm')]: {
+      width: 275,
+    },
+  },
+  numbers: {
+    fontFamily: 'Montserrat',
+    fontSize: 14,
+    color: '#495464',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      fontSize: 12,
+    },
+  },
+  breadInfo: {
+    marginLeft: 50,
+    color: '#495464',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      marginLeft: 0,
+      marginTop: 5,
+    },
+  },
+  snackbar: {
+    color: '#f4f4f2',
+    fontFamily: 'Montserrat',
+    backgroundColor: '#495464',
+    textAlign: 'center',
+  },
+}))
+
+export default useStyles

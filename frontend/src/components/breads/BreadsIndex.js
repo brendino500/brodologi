@@ -8,9 +8,7 @@ import useStyles from './styles/breadsIndexStyles'
 
 export default function BreadsIndex() {
   const classes = useStyles()
-
   const [data, setData] = React.useState([])
-  const [open, setOpen] = React.useState(false)
 
   const getData = async () => {
     const res = await getAllBreads()

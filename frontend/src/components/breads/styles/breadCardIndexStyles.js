@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   snackbar: {
     color: '#EBE8E5',
     fontFamily: 'Montserrat',
-    backgroundColor: '#497702',
+    backgroundColor: '#495464',
     textAlign: 'center',
   },
 }))
