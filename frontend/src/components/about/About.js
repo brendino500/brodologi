@@ -16,9 +16,9 @@ export default function About() {
               Hallo!
             </Typography>
             <Typography className={classes.text}>
-              Vi er bror, bror, søsterduo og har absolutt elsket å bake sammen
-              med foreldrene og besteforeldrene siden vi var veldig små. Vi har
-              tatt foreldrene våre kunnskap og ferdigheter og ønsket å dele
+              Vi er en broderduo og har absolutt elsket å bake med foreldrene og
+              besteforeldrene våre siden vi var veldig små. Vi har tatt
+              foreldrene våre kunnskap og ferdigheter og ønsket å dele
               kreasjonene våre med deg. Brødology ble først opprettet i vårt
               familiekjøkken i oppveksten, og det har vært vår lidenskap siden.
             </Typography>
