@@ -23,9 +23,6 @@ export default function LeftDrawer({ isOpen, onClose }) {
         <Link to="/omkring" className={classes.link}>
           <Button className={classes.sideMenu}>Omkring</Button>
         </Link>
-        <Link to="/lokaliser" className={classes.link}>
-          <Button className={classes.sideMenu}>Lokaliser</Button>
-        </Link>
       </div>
     </Drawer>
   )
