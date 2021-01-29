@@ -17,12 +17,13 @@ import useStyles from './styles/breadCardIndexStyles'
 
 const BreadCardIndex = ({ _id, image, name, price }) => {
   const classes = useStyles()
-  const [basket, setBasket] = useContext(BasketContext)
+  const [basket, basketDispatch] = useContext(BasketContext)
   const [open, setOpen] = React.useState(false)
 
   const handleAddToBasket = () => {
     const bread = { name, price, _id, image }
-    setBasket((curr) => [...curr, bread])
+    // setBasket((curr) => [...curr, bread])
+    basketDispatch({ type: 'add', item: bread, quantity: 1 })
     setOpen(true)
     console.log(`added ${name} to basket`)
   }

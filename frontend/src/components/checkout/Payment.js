@@ -9,7 +9,7 @@ export default function Payment() {
   return (
     <div className={classes.container}>
       <Typography className={classes.title}>Betaling</Typography>
-      <CardField />
+      {/* <CardField /> */}
     </div>
   )
 }

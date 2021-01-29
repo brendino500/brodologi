@@ -17,17 +17,17 @@ import { showSingleBread } from '../../lib/api'
 export default function BreadIndividual(props) {
   const classes = useStyles()
   const [data, setData] = React.useState()
-  const [basket, setBasket] = useContext(BasketContext)
+  const [basketState, basketDispatch] = useContext(BasketContext)
   const [open, setOpen] = React.useState(false)
   const [quantity, setQuantity] = React.useState(1)
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await showSingleBread(props.computedMatch.params.id)
+      const res = await showSingleBread(props.match.params.id)
       setData(res.data)
     }
     getData()
-  }, [props.computedMatch.params.id])
+  }, [props.match.params.id])
 
   const handleAddToBasket = () => {
     // const amount = quantity * data.price
@@ -36,11 +36,7 @@ export default function BreadIndividual(props) {
     // console.log('total', amount)
     // console.log(basket)
 
-    // const newBasketItems = []
-    // for (let i = 0; i < quantity; i++) {
-    //   newBasketItems.push(data)
-    // }
-    setBasket((curr) => [...curr, data])
+    basketDispatch({ type: 'add', item: data, quantity: Number(quantity) })
     setOpen(true)
     console.log(`added ${data.price} to basket`)
   }

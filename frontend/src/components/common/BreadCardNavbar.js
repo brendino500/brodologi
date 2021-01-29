@@ -16,31 +16,38 @@ import useStyles from './styles/breadCardNavbarStyles'
 
 export default function BreadCardNavbar() {
   const classes = useStyles()
-  const [open, setOpen] = React.useState(false)
-  const [basketState, setBasketState] = React.useContext(BasketContext)
+  const [open, setOpen] = React.useState({
+    isOpen: false,
+  })
+  const [basketState, basketDispatch] = React.useContext(BasketContext)
   const [itemsInBasket, setItemsInBasket] = React.useState([])
 
   React.useEffect(() => {
-    setItemsInBasket(basketState)
-  }, [basketState])
+    setItemsInBasket(basketState.basket)
+  }, [basketState.basket])
 
-  const handleClickDelete = (breadID) => {
-    setOpen(true)
-    const newBasketState = [...basketState]
-    newBasketState.splice(newBasketState.indexOf(breadID), 1)
+  const handleClickDelete = (breadID, breadName) => {
+    setOpen({
+      isOpen: true,
+      breadName,
+    })
+    basketDispatch({ type: 'delete', breadID: breadID })
   }
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return
     }
-    setOpen(false)
+    setOpen({
+      isOpen: false,
+      breadName: open.breadName,
+    })
   }
   console.log(itemsInBasket)
 
   return (
     <Container className={classes.root}>
-      {basketState.map((bread, breadIndex) => {
+      {basketState.basket.map((bread, breadIndex) => {
         if (bread === undefined) {
           console.log('Bread ID not found')
         } else {
@@ -62,7 +69,7 @@ export default function BreadCardNavbar() {
                       <IconButton
                         className={classes.cancelIcon}
                         onClick={() => {
-                          handleClickDelete(bread._id)
+                          handleClickDelete(bread._id, bread.name)
                         }}
                       >
                         <CancelIcon className={classes.cancelIcon} />
@@ -79,25 +86,25 @@ export default function BreadCardNavbar() {
                   </div>
                 </Card>
               </Link>
-              <Snackbar
-                ContentProps={{
-                  classes: {
-                    root: classes.snackbar,
-                  },
-                }}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'center',
-                }}
-                open={open}
-                autoHideDuration={3000}
-                onClose={handleClose}
-                message={`You have removed ${bread.name} from your basket`}
-              />
             </>
           )
         }
       })}
+      <Snackbar
+        ContentProps={{
+          classes: {
+            root: classes.snackbar,
+          },
+        }}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        open={open.isOpen}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        message={`You have removed ${open.breadName} from your basket`}
+      />
     </Container>
   )
 }
