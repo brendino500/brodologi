@@ -5,8 +5,11 @@ import {
   Snackbar,
   Container,
   Grid,
+  TextField,
+  ThemeProvider,
 } from '@material-ui/core'
 
+import colorTheme from '../../colorTheme'
 import useStyles from './styles/breadIndividualStyles'
 import { BasketContext } from '../../context/basketContext'
 import { showSingleBread } from '../../lib/api'
@@ -40,14 +43,9 @@ export default function BreadIndividual(props) {
 
   if (!data) return null
   return (
-    <>
+    <ThemeProvider theme={colorTheme}>
       <Container maxWidth="md" className={classes.root}>
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="flex-start"
-        >
+        <div className={classes.container}>
           <img src={data.image} alt={data.name} className={classes.image} />
           <div className={classes.breadInfo}>
             <Typography className={classes.breadName}>{data.name}</Typography>
@@ -55,6 +53,23 @@ export default function BreadIndividual(props) {
             <Typography className={classes.price}>{data.price} KR</Typography>
             <br />
             <Typography className={classes.text}>{data.description}</Typography>
+
+            <TextField
+              className={classes.numberInput}
+              id="outlined-number"
+              label="Antall"
+              type="number"
+              InputLabelProps={{
+                shrink: true,
+                classes: {
+                  root: classes.numberText,
+                  focused: classes.numberText,
+                },
+              }}
+              variant="outlined"
+              color="primary"
+            />
+
             <Button
               className={classes.button}
               variant="contained"
@@ -75,11 +90,11 @@ export default function BreadIndividual(props) {
               open={open}
               autoHideDuration={3000}
               onClose={handleClose}
-              message={`You have added ${data.name} to your basket`}
+              message={`Du har lagt til ${data.name} i kurven din`}
             />
           </div>
-        </Grid>
+        </div>
       </Container>
-    </>
+    </ThemeProvider>
   )
 }
