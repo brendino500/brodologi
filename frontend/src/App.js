@@ -18,7 +18,7 @@ function App() {
           <Route path="/omkring" component={About} />
           <Route path="/butikk/:id" component={BreadIndividual} />
           <Route path="/butikk" component={BreadsIndex} />
-          {/* <Route path="/betaling" component={Payment} /> */}
+          <Route path="/betaling" component={Payment} />
         </Switch>
       </BasketProvider>
     </BrowserRouter>

@@ -4,7 +4,6 @@ import {
   Button,
   Snackbar,
   Container,
-  Grid,
   TextField,
   ThemeProvider,
 } from '@material-ui/core'
@@ -30,12 +29,6 @@ export default function BreadIndividual(props) {
   }, [props.match.params.id])
 
   const handleAddToBasket = () => {
-    // const amount = quantity * data.price
-    // console.log('quantity', quantity)
-    // console.log('price', data.price)
-    // console.log('total', amount)
-    // console.log(basket)
-
     basketDispatch({ type: 'add', item: data, quantity: Number(quantity) })
     setOpen(true)
     console.log(`added ${data.price} to basket`)
