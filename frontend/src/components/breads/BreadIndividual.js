@@ -19,6 +19,7 @@ export default function BreadIndividual(props) {
   const [data, setData] = React.useState()
   const [basket, setBasket] = useContext(BasketContext)
   const [open, setOpen] = React.useState(false)
+  const [quantity, setQuantity] = React.useState(1)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -29,9 +30,19 @@ export default function BreadIndividual(props) {
   }, [props.computedMatch.params.id])
 
   const handleAddToBasket = () => {
+    // const amount = quantity * data.price
+    // console.log('quantity', quantity)
+    // console.log('price', data.price)
+    // console.log('total', amount)
+    // console.log(basket)
+
+    // const newBasketItems = []
+    // for (let i = 0; i < quantity; i++) {
+    //   newBasketItems.push(data)
+    // }
     setBasket((curr) => [...curr, data])
     setOpen(true)
-    console.log(`added ${data.name} to basket`)
+    console.log(`added ${data.price} to basket`)
   }
 
   const handleClose = (event, reason) => {
@@ -39,6 +50,11 @@ export default function BreadIndividual(props) {
       return
     }
     setOpen(false)
+  }
+
+  const handleQuantityChange = (e) => {
+    setQuantity(e.target.value)
+    console.log(quantity)
   }
 
   if (!data) return null
@@ -68,6 +84,7 @@ export default function BreadIndividual(props) {
               }}
               variant="outlined"
               color="primary"
+              onClick={handleQuantityChange}
             />
 
             <Button
