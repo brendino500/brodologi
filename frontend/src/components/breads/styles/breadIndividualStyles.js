@@ -7,8 +7,12 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '-7%',
     },
   },
+  container: {
+    display: 'flex',
+    marginTop: '9em',
+  },
   image: {
-    height: 400,
+    height: '60vh',
     [theme.breakpoints.between('xs', 'sm')]: {
       height: 275,
     },
@@ -25,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 16,
     },
   },
-
   text: {
     fontFamily: 'Montserrat',
     fontSize: 16,
@@ -77,6 +80,12 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     backgroundColor: '#495464',
     textAlign: 'center',
+  },
+  numberInput: {
+    border: '#495464',
+  },
+  numberText: {
+    fontFamily: 'Montserrat',
   },
 }))
 

@@ -16,7 +16,7 @@ import RightDrawer from './RightDrawer'
 
 const Navbar = () => {
   const classes = useStyles()
-  const [basket, setBasket] = useContext(BasketContext)
+  const [basketState, setBasket] = useContext(BasketContext)
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -70,7 +70,7 @@ const Navbar = () => {
             onClick={toggleDrawer('right', true)}
           >
             <Badge
-              badgeContent={basket.length}
+              badgeContent={basketState.basket.length}
               className={classes.cartIcon}
               color="secondary"
             >

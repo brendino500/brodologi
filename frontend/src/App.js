@@ -6,6 +6,7 @@ import Navbar from './components/common/Navbar'
 import About from './components/about/About'
 import BreadsIndex from './components/breads/BreadsIndex'
 import BreadIndividual from './components/breads/BreadIndividual'
+import Payment from './components/checkout/Payment'
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
       <BasketProvider>
         <Navbar />
         <Switch>
-          <Home exact path="/" component={Home} />
-          <About path="/omkring" component={About} />
-          <BreadIndividual path="/butikk/:id" component={BreadIndividual} />
-          <BreadsIndex path="/butikk" component={BreadsIndex} />
+          <Route exact path="/" component={Home} />
+          <Route path="/omkring" component={About} />
+          <Route path="/butikk/:id" component={BreadIndividual} />
+          <Route path="/butikk" component={BreadsIndex} />
+          {/* <Route path="/betaling" component={Payment} /> */}
         </Switch>
       </BasketProvider>
     </BrowserRouter>

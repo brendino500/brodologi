@@ -5,8 +5,11 @@ import {
   Snackbar,
   Container,
   Grid,
+  TextField,
+  ThemeProvider,
 } from '@material-ui/core'
 
+import colorTheme from '../../colorTheme'
 import useStyles from './styles/breadIndividualStyles'
 import { BasketContext } from '../../context/basketContext'
 import { showSingleBread } from '../../lib/api'
@@ -14,21 +17,28 @@ import { showSingleBread } from '../../lib/api'
 export default function BreadIndividual(props) {
   const classes = useStyles()
   const [data, setData] = React.useState()
-  const [basket, setBasket] = useContext(BasketContext)
+  const [basketState, basketDispatch] = useContext(BasketContext)
   const [open, setOpen] = React.useState(false)
+  const [quantity, setQuantity] = React.useState(1)
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await showSingleBread(props.computedMatch.params.id)
+      const res = await showSingleBread(props.match.params.id)
       setData(res.data)
     }
     getData()
-  }, [props.computedMatch.params.id])
+  }, [props.match.params.id])
 
   const handleAddToBasket = () => {
-    setBasket((curr) => [...curr, data])
+    // const amount = quantity * data.price
+    // console.log('quantity', quantity)
+    // console.log('price', data.price)
+    // console.log('total', amount)
+    // console.log(basket)
+
+    basketDispatch({ type: 'add', item: data, quantity: Number(quantity) })
     setOpen(true)
-    console.log(`added ${data.name} to basket`)
+    console.log(`added ${data.price} to basket`)
   }
 
   const handleClose = (event, reason) => {
@@ -38,16 +48,16 @@ export default function BreadIndividual(props) {
     setOpen(false)
   }
 
+  const handleQuantityChange = (e) => {
+    setQuantity(e.target.value)
+    console.log(quantity)
+  }
+
   if (!data) return null
   return (
-    <>
+    <ThemeProvider theme={colorTheme}>
       <Container maxWidth="md" className={classes.root}>
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="flex-start"
-        >
+        <div className={classes.container}>
           <img src={data.image} alt={data.name} className={classes.image} />
           <div className={classes.breadInfo}>
             <Typography className={classes.breadName}>{data.name}</Typography>
@@ -55,6 +65,24 @@ export default function BreadIndividual(props) {
             <Typography className={classes.price}>{data.price} KR</Typography>
             <br />
             <Typography className={classes.text}>{data.description}</Typography>
+
+            <TextField
+              className={classes.numberInput}
+              id="outlined-number"
+              label="Antall"
+              type="number"
+              InputLabelProps={{
+                shrink: true,
+                classes: {
+                  root: classes.numberText,
+                  focused: classes.numberText,
+                },
+              }}
+              variant="outlined"
+              color="primary"
+              onClick={handleQuantityChange}
+            />
+
             <Button
               className={classes.button}
               variant="contained"
@@ -75,11 +103,11 @@ export default function BreadIndividual(props) {
               open={open}
               autoHideDuration={3000}
               onClose={handleClose}
-              message={`You have added ${data.name} to your basket`}
+              message={`Du har lagt til ${data.name} i kurven din`}
             />
           </div>
-        </Grid>
+        </div>
       </Container>
-    </>
+    </ThemeProvider>
   )
 }
