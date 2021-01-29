@@ -1,52 +1,56 @@
 import React from 'react'
-import { TextField, Typography, InputAdornment } from '@material-ui/core'
+import { TextField, InputAdornment, ThemeProvider } from '@material-ui/core'
 import LockIcon from '@material-ui/icons/Lock'
 
+import CardFormInput from './CardFormInput'
+import colorTheme from '../../colorTheme'
 import useStyles from './styles/paymentStyles'
 
 const CardField = () => {
   const classes = useStyles()
+
+  const inputProps1 = () => {
+    return {
+      classes: {
+        input: classes.inputText,
+      },
+    }
+  }
+
   return (
-    <div className={classes.container}>
-      <form className={classes.form} noValidate autoComplete="off">
-        <TextField
-          id="card-num"
-          fullWidth
-          required
-          label="Card Number"
-          variant="outlined"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <LockIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
-        <TextField
-          id="name"
-          fullWidth
-          required
-          label="Name on Card"
-          variant="outlined"
-        />
-        <TextField
-          id="Expiration"
-          fullWidth
-          required
-          label="Expiration date (MM/YY)"
-          variant="outlined"
-        />
-        <TextField
-          id="security code"
-          fullWidth
-          required
-          label="Security code"
-          variant="outlined"
-          className={classes.TextField}
-        />
-      </form>
-    </div>
+    <ThemeProvider theme={colorTheme}>
+      <div className={classes.container}>
+        <form className={classes.form} noValidate autoComplete="off">
+          <TextField
+            className={classes.textField}
+            id="outlined-basic"
+            fullWidth
+            required
+            label="Kortnummer"
+            variant="outlined"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockIcon />
+                </InputAdornment>
+              ),
+              classes: {
+                input: classes.inputText,
+              },
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.inputText,
+                focused: classes.inputText,
+              },
+            }}
+          />
+          <CardFormInput label="Navn på Kort" inputProps={inputProps1} />
+          <CardFormInput label="Utløpsdato (MM/ÅÅ)" inputProps={inputProps1} />
+          <CardFormInput label="Sikkerhetskode" inputProps={inputProps1} />
+        </form>
+      </div>
+    </ThemeProvider>
   )
 }
 

@@ -44,8 +44,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.5em',
     color: '#495464',
   },
-  textField: {
+
+  inputText: {
     fontFamily: 'Montserrat',
+    letterSpacing: 1,
+    color: '#495464',
+    fontSize: 13,
+  },
+  textField: {
+    margin: '0.3em',
   },
 }))
 
