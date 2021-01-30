@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: 12,
     textAlign: 'center',
     marginTop: '5vh',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      fontSize: 28,
+    },
   },
   switch: {
     color: '#495464',
@@ -36,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.3em',
     color: '#495464',
     marginTop: '1em',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      fontSize: 16,
+    },
   },
   linksContainer: {
     display: 'flex',
@@ -49,6 +55,9 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
     letterSpacing: 4,
     marginLeft: '0.5em',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      fontSize: 12,
+    },
   },
   socialIcons: {
     fontSize: '4vh',

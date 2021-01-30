@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   buttonList: {
     display: 'flex',
     flexDirection: 'column',
-    width: '26vw',
+    width: drawerWidth,
     marginTop: '40vh',
     textAlign: 'center',
   },
