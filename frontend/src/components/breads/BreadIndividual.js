@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import Fade from 'react-reveal/Fade'
+
 import {
   Typography,
   Button,
@@ -51,55 +53,59 @@ export default function BreadIndividual(props) {
     <ThemeProvider theme={colorTheme}>
       <Container maxWidth="md" className={classes.root}>
         <div className={classes.container}>
-          <img src={data.image} alt={data.name} className={classes.image} />
-          <div className={classes.breadInfo}>
-            <Typography className={classes.breadName}>{data.name}</Typography>
-            <br />
-            <Typography className={classes.price}>{data.price} KR</Typography>
-            <br />
-            <Typography className={classes.text}>{data.description}</Typography>
+          <Fade bottom cascade>
+            <img src={data.image} alt={data.name} className={classes.image} />
+            <div className={classes.breadInfo}>
+              <Typography className={classes.breadName}>{data.name}</Typography>
+              <br />
+              <Typography className={classes.price}>{data.price} KR</Typography>
+              <br />
+              <Typography className={classes.text}>
+                {data.description}
+              </Typography>
 
-            <TextField
-              className={classes.numberInput}
-              id="outlined-number"
-              label="Antall"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-                classes: {
-                  root: classes.numberText,
-                  focused: classes.numberText,
-                },
-              }}
-              variant="outlined"
-              color="primary"
-              onClick={handleQuantityChange}
-            />
+              <TextField
+                className={classes.numberInput}
+                id="outlined-number"
+                label="Antall"
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                  classes: {
+                    root: classes.numberText,
+                    focused: classes.numberText,
+                  },
+                }}
+                variant="outlined"
+                color="primary"
+                onClick={handleQuantityChange}
+              />
 
-            <Button
-              className={classes.button}
-              variant="contained"
-              onClick={handleAddToBasket}
-            >
-              Legg i Handlekurv
-            </Button>
-            <Snackbar
-              ContentProps={{
-                classes: {
-                  root: classes.snackbar,
-                },
-              }}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-              }}
-              open={open}
-              autoHideDuration={3000}
-              onClose={handleClose}
-              message={`Du har lagt til ${data.name} i kurven din`}
-            />
-          </div>
+              <Button
+                className={classes.button}
+                variant="contained"
+                onClick={handleAddToBasket}
+              >
+                Legg i Handlekurv
+              </Button>
+            </div>
+          </Fade>
         </div>
+        <Snackbar
+          ContentProps={{
+            classes: {
+              root: classes.snackbar,
+            },
+          }}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          open={open}
+          autoHideDuration={3000}
+          onClose={handleClose}
+          message={`Du har lagt til ${data.name} i kurven din`}
+        />
       </Container>
     </ThemeProvider>
   )

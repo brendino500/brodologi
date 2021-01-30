@@ -7,6 +7,7 @@ import About from './components/about/About'
 import BreadsIndex from './components/breads/BreadsIndex'
 import BreadIndividual from './components/breads/BreadIndividual'
 import Payment from './components/checkout/Payment'
+import FinalPage from './components/finalPage/FinalPage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/butikk/:id" component={BreadIndividual} />
           <Route path="/butikk" component={BreadsIndex} />
           <Route path="/betaling" component={Payment} />
+          <Route path="/heyimbrenda" component={FinalPage} />
         </Switch>
       </BasketProvider>
     </BrowserRouter>
