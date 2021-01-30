@@ -8,12 +8,11 @@ const useStyles = makeStyles((theme) => ({
     width: '60vw',
     display: 'flex',
     flexDirection: 'column',
-    justify: 'center',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: '10vw',
+    flexGrow: 1,
+    marginLeft: '17vw',
   },
-  form: {},
-
   title: {
     fontFamily: 'Montserrat',
     fontSize: '8vh',
@@ -22,11 +21,15 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: 12,
     textAlign: 'center',
   },
+  footer: {
+    fontFamily: 'Montserrat',
+    fontSize: '0.7em',
+    color: '#495464',
+  },
   creditCardTextLayout: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex start',
-    width: '70vw',
   },
   creditCardIconLayout: {
     display: 'flex',

@@ -5,6 +5,8 @@ import LockIcon from '@material-ui/icons/Lock'
 import CardFormInput from './CardFormInput'
 import colorTheme from '../../colorTheme'
 import useStyles from './styles/paymentStyles'
+import CreditCardText from './CreditCardText'
+import Footer from './Footer'
 
 const CardField = () => {
   const classes = useStyles()
@@ -20,6 +22,7 @@ const CardField = () => {
   return (
     <ThemeProvider theme={colorTheme}>
       <div className={classes.container}>
+        <CreditCardText />
         <form className={classes.form} noValidate autoComplete="off">
           <TextField
             className={classes.textField}
@@ -49,6 +52,7 @@ const CardField = () => {
           <CardFormInput label="Utløpsdato (MM/ÅÅ)" inputProps={inputProps1} />
           <CardFormInput label="Sikkerhetskode" inputProps={inputProps1} />
         </form>
+        <Footer />
       </div>
     </ThemeProvider>
   )
