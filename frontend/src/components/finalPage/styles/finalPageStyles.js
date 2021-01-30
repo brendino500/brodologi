@@ -10,6 +10,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginTop: '10vh',
   },
+  switch: {
+    color: '#495464',
+    marginTop: '30vh',
+  },
 }))
 
 export default useStyles
