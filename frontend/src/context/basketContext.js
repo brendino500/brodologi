@@ -2,7 +2,10 @@ import React, { useReducer } from 'react'
 
 export const BasketContext = React.createContext()
 
-const initialState = { basket: [] }
+const initialState = {
+  basket: [],
+  total: 0,
+}
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -11,18 +14,21 @@ const reducer = (state, action) => {
       for (let i = 0; i < action.quantity; i++) {
         newBasketItems.push(action.item)
       }
-      return { basket: state.basket.concat(newBasketItems) }
+      const newBasket = state.basket.concat(newBasketItems)
+      const newTotal = newBasket.reduce((a, b) => a + b.price, 0)
+      return { basket: newBasket, total: newTotal }
+
     case 'delete':
       const basket = [...state.basket]
-      console.log(basket, action.breadID)
-      basket.splice(
+      const spliceArray = basket.splice(
         basket.findIndex((value) => value._id === action.breadID),
         1
       )
-      console.log(basket, action.breadID)
+      const removeItem = spliceArray[0]
 
       return {
         basket,
+        total: state.total - removeItem.price,
       }
     default:
       throw new Error()
