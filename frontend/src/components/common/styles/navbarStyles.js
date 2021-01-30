@@ -48,6 +48,45 @@ const useStyles = makeStyles((theme) => ({
   drawerPaperLeft: {
     backgroundColor: '#495464',
   },
-  rightDrawer: {},
+  rightDrawer: {
+    width: '80vw',
+  },
+  titleCart: {
+    flexGrow: 1,
+    color: '#495464',
+    fontFamily: 'Montserrat',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: '1.5em',
+    letterSpacing: 6,
+    textAlign: 'center',
+    width: '26vw',
+    marginTop: '1em',
+  },
+  checkoutButton: {
+    fontFamily: 'Montserrat',
+    color: '#f4f4f2',
+    height: '3em',
+    fontWeight: 'bold',
+    fontSize: '1.2em',
+    backgroundColor: '#495464',
+    letterSpacing: 4,
+  },
+  checkoutButtonLayout: {
+    position: 'fixed',
+    bottom: 0,
+    width: '26vw',
+  },
+  basketTotal: {
+    fontFamily: 'Montserrat',
+    color: '#495464',
+    letterSpacing: 4,
+    fontSize: '1.2em',
+  },
+  basketTotalLayout: {
+    display: 'flex',
+    justify: 'space-between',
+    alignItems: 'flex-start',
+  },
 }))
 export default useStyles
