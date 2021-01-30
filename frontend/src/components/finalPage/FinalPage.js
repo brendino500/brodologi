@@ -1,6 +1,9 @@
 import React from 'react'
 import { Typography, Switch, ThemeProvider } from '@material-ui/core'
+import { FiGithub, FiLink, FiTwitter, FiLinkedin } from 'react-icons/fi'
+import { FaLinkedin } from 'react-icons/fa'
 
+import Links from './Links'
 import useStyles from './styles/finalPageStyles'
 import colorTheme from '../../colorTheme'
 
@@ -10,13 +13,12 @@ export default function FinalPage() {
 
   const handleChange = (event) => {
     setIsNorwegian(!isNorwegian)
-    console.log(event.target.checked)
   }
 
   const getText = () => {
     if (isNorwegian) {
       return (
-        <div>
+        <div className={classes.textContainer}>
           <Typography className={classes.title}>Hei, jeg er Brenda</Typography>
           <Typography className={classes.text}>
             Jeg er programvareutvikler som bor i London. Unnskyld hvis
@@ -29,7 +31,7 @@ export default function FinalPage() {
       )
     } else {
       return (
-        <div>
+        <div className={classes.textContainer}>
           <Typography className={classes.title}>Hi, I'm Brenda</Typography>
           <Typography className={classes.text}>
             I'm a software developer living in London. Unfortunately this bakery
@@ -43,19 +45,48 @@ export default function FinalPage() {
     }
   }
 
+  const github = <FiGithub className={classes.socialIcons} />
+  const personal = <FiLink className={classes.socialIcons} />
+  const linkedIn = <FiLinkedin className={classes.socialIcons} />
+  const twitter = <FiTwitter className={classes.socialIcons} />
+
   return (
     <ThemeProvider theme={colorTheme}>
       <div>
+        <div className={classes.switchContainer}>
+          <Typography className={classes.languageOption}>EN</Typography>
+          <Switch
+            className={classes.switch}
+            checked={isNorwegian}
+            onChange={handleChange}
+            name="checkedNorwegian"
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
+          />
+          <Typography className={classes.languageOption}>NOR</Typography>
+        </div>
         {getText()}
-        NOR
-        <Switch
-          className={classes.switch}
-          checked={isNorwegian}
-          onChange={handleChange}
-          name="checkedNorwegian"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-        EN
+        <div className={classes.socialLinks}>
+          <Links
+            website="https://github.com/brendino500"
+            icon={github}
+            social="Github"
+          />
+          <Links
+            website="https://www.brendaty.com/"
+            icon={personal}
+            social="Portfolio"
+          />
+          <Links
+            website="https://twitter.com/btcodes"
+            icon={twitter}
+            social="@btcodes"
+          />
+          <Links
+            website="https://www.linkedin.com/in/brendaty/"
+            icon={linkedIn}
+            social="LinkedIn"
+          />
+        </div>
       </div>
     </ThemeProvider>
   )
