@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-const drawerWidth = 300
+const drawerWidth = 330
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     maxHeight: '80%',
     flexDirection: 'column',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      maxHeight: '70vh',
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
