@@ -14,17 +14,17 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     height: 80,
-    width: '5vw',
+    width: 80,
     [theme.breakpoints.between('xs', 'sm')]: {
       height: 65,
       width: 65,
     },
   },
-  plantName: {
+  breadName: {
     fontFamily: 'Montserrat',
     fontSize: 15,
     color: '#495464',
-    width: '15vw',
+    width: 175,
     [theme.breakpoints.between('xs', 'sm')]: {
       width: 150,
       fontSize: 14,

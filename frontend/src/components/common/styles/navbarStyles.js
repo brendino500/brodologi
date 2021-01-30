@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
+const drawerWidth = 300
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -54,8 +56,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#495464',
   },
   drawerPaperRight: {
-    maxWidth: '26vw',
-    width: '26vw',
+    maxWidth: drawerWidth,
+    width: drawerWidth,
     backgroundColor: '#f4f4f2',
   },
   titleCart: {
@@ -67,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.5em',
     letterSpacing: 6,
     textAlign: 'center',
-    width: '26vw',
+    width: drawerWidth,
     marginTop: '1em',
     position: 'fixed',
     top: 0,
@@ -81,12 +83,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.2em',
     backgroundColor: '#495464',
     letterSpacing: 4,
-    width: '26vw',
+    width: drawerWidth,
   },
   checkoutButtonLayout: {
     position: 'fixed',
     bottom: 0,
-    width: '26vw',
+    width: drawerWidth,
   },
   basketTotal: {
     fontFamily: 'Montserrat',
