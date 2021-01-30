@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Drawer, Button, Typography, Grid } from '@material-ui/core'
+import { Drawer, Button, Typography, Grid, ListItem } from '@material-ui/core'
 
 import BreadCardNavbar from './BreadCardNavbar'
 import useStyles from './styles/navbarStyles'
@@ -8,7 +8,6 @@ import { BasketContext } from '../../context/basketContext'
 export default function RightDrawer({ isOpen, onClose }) {
   const classes = useStyles()
   const [basketState, basketDispatch] = useContext(BasketContext)
-  console.log(basketState)
 
   return (
     <Drawer
@@ -20,7 +19,9 @@ export default function RightDrawer({ isOpen, onClose }) {
       <div>
         <div>
           <Typography className={classes.titleCart}>Handlevogn</Typography>
-          <BreadCardNavbar />
+          <div className={classes.breadCardContainer}>
+            <BreadCardNavbar />
+          </div>
         </div>
         <div className={classes.checkoutButtonLayout}>
           <Grid
