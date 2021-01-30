@@ -2,7 +2,12 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'auto',
+    maxHeight: '80%',
+    flexDirection: 'column',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -48,8 +53,10 @@ const useStyles = makeStyles((theme) => ({
   drawerPaperLeft: {
     backgroundColor: '#495464',
   },
-  rightDrawer: {
-    width: '80vw',
+  drawerPaperRight: {
+    maxWidth: '26vw',
+    width: '26vw',
+    backgroundColor: '#f4f4f2',
   },
   titleCart: {
     flexGrow: 1,
@@ -62,6 +69,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     width: '26vw',
     marginTop: '1em',
+    position: 'fixed',
+    top: 0,
+    backgroundColor: '#f4f4f2',
   },
   checkoutButton: {
     fontFamily: 'Montserrat',
@@ -71,6 +81,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.2em',
     backgroundColor: '#495464',
     letterSpacing: 4,
+    width: '26vw',
   },
   checkoutButtonLayout: {
     position: 'fixed',
@@ -82,11 +93,19 @@ const useStyles = makeStyles((theme) => ({
     color: '#495464',
     letterSpacing: 4,
     fontSize: '1.2em',
+    margin: '0.5em',
   },
   basketTotalLayout: {
     display: 'flex',
-    justify: 'space-between',
+    justify: 'space between',
     alignItems: 'flex-start',
+  },
+  breadCardContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  link: {
+    textDecoration: 'none',
   },
 }))
 export default useStyles
