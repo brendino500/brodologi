@@ -103,7 +103,7 @@ export default function BreadCardNavbar() {
         open={open.isOpen}
         autoHideDuration={3000}
         onClose={handleClose}
-        message={`You have removed ${open.breadName} from your basket`}
+        message={`Du har fjernet ${open.breadName} fra kurven din`}
       />
     </Container>
   )

@@ -6,14 +6,15 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'auto',
-    maxHeight: '80%',
+    maxHeight: '70vh',
+    marginTop: '10vh',
     [theme.breakpoints.between('xs', 'sm')]: {
       maxHeight: '75%',
     },
   },
   image: {
     height: 80,
-    width: 80,
+    width: '5vw',
     [theme.breakpoints.between('xs', 'sm')]: {
       height: 65,
       width: 65,
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     fontSize: 15,
     color: '#495464',
-    width: 175,
+    width: '15vw',
     [theme.breakpoints.between('xs', 'sm')]: {
       width: 150,
       fontSize: 14,
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   content: {
-    backgroundColor: '#f4f4f2',
+    backgroundColor: '#e8e8e8',
     display: 'flex',
     position: 'relative',
     flex: '1 0 auto',

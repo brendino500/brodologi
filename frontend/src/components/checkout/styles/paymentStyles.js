@@ -21,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: 12,
     textAlign: 'center',
   },
+  subtitle: {
+    fontFamily: 'Montserrat',
+    fontSize: '2.5vh',
+    color: '#495464',
+    textAlign: 'center',
+  },
   footer: {
     fontFamily: 'Montserrat',
     fontSize: '0.7em',
