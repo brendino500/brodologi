@@ -25,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     fontSize: '0.7em',
     color: '#495464',
+    marginTop: '0.3em',
+  },
+  fieldDouble: {
+    display: 'flex',
+    flexDirection: 'row',
   },
   creditCardTextLayout: {
     display: 'flex',
@@ -55,7 +60,22 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 13,
   },
   textField: {
-    margin: '0.3em',
+    margin: '0.2em 0',
+  },
+  submitButton: {
+    backgroundColor: '#495464',
+    fontFamily: 'Montserrat',
+    fontWeight: 'bold',
+    fontSize: '1em',
+    letterSpacing: 4,
+    color: '#f4f4f2',
+    marginTop: '0.3em',
+  },
+  link: {
+    textDecoration: 'none',
+  },
+  lockIcon: {
+    color: '#495464',
   },
 }))
 
