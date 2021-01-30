@@ -3,18 +3,22 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.between('xs', 'sm')]: {
-      marginLeft: '7%',
+      marginLeft: '0.5em',
       marginTop: '-7%',
     },
   },
   container: {
     display: 'flex',
     marginTop: '9em',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      flexDirection: 'column',
+      marginLeft: '-1em',
+    },
   },
   image: {
     height: '60vh',
     [theme.breakpoints.between('xs', 'sm')]: {
-      height: 275,
+      height: '40vh',
     },
   },
   breadName: {
@@ -73,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.between('xs', 'sm')]: {
       marginLeft: 0,
       marginTop: 5,
+      width: '70vw',
     },
   },
   snackbar: {
@@ -80,6 +85,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     backgroundColor: '#495464',
     textAlign: 'center',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      width: '70vw',
+    },
   },
   numberInput: {
     border: '#495464',

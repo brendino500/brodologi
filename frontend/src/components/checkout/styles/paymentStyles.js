@@ -64,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: 1,
     color: '#495464',
     fontSize: 13,
+    [theme.breakpoints.between('xs', 'sm')]: {
+      fontSize: 10,
+    },
   },
   textField: {
     margin: '0.2em 0',

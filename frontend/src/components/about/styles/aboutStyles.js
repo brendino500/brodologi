@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justify: 'center',
     alignItems: 'center',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      flexDirection: 'column',
+      width: 270,
+    },
   },
   title: {
     fontFamily: 'Montserrat',
@@ -34,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     height: '40vh',
     margin: '2vw',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      height: '30vh',
+    },
   },
   link: {
     textDecoration: 'none',

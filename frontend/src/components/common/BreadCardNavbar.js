@@ -75,7 +75,7 @@ export default function BreadCardNavbar() {
                         <CancelIcon className={classes.cancelIcon} />
                       </IconButton>
                       <div>
-                        <Typography className={classes.plantName} noWrap>
+                        <Typography className={classes.breadName} noWrap>
                           {bread.name}
                         </Typography>
                         <Typography className={classes.price}>

@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
+const drawerWidth = 330
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -8,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     maxHeight: '80%',
     flexDirection: 'column',
+    [theme.breakpoints.between('xs', 'sm')]: {
+      maxHeight: '70vh',
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -30,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   buttonList: {
     display: 'flex',
     flexDirection: 'column',
-    width: '26vw',
+    width: drawerWidth,
     marginTop: '40vh',
     textAlign: 'center',
   },
@@ -54,8 +59,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#495464',
   },
   drawerPaperRight: {
-    maxWidth: '26vw',
-    width: '26vw',
+    maxWidth: drawerWidth,
+    width: drawerWidth,
     backgroundColor: '#f4f4f2',
   },
   titleCart: {
@@ -67,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.5em',
     letterSpacing: 6,
     textAlign: 'center',
-    width: '26vw',
+    width: drawerWidth,
     marginTop: '1em',
     position: 'fixed',
     top: 0,
@@ -81,12 +86,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.2em',
     backgroundColor: '#495464',
     letterSpacing: 4,
-    width: '26vw',
+    width: drawerWidth,
   },
   checkoutButtonLayout: {
     position: 'fixed',
     bottom: 0,
-    width: '26vw',
+    width: drawerWidth,
   },
   basketTotal: {
     fontFamily: 'Montserrat',
