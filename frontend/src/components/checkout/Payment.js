@@ -11,6 +11,9 @@ export default function Payment() {
     <div className={classes.container}>
       <Fade bottom cascade>
         <Typography className={classes.title}>Betaling</Typography>
+        <Typography className={classes.subtitle}>
+          Merk at bestillinger kun er hentet
+        </Typography>
         <div className={classes.formContainer}>
           <CardField />
         </div>

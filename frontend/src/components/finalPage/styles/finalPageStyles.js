@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '0.3em',
     textTransform: 'uppercase',
     letterSpacing: 4,
+    marginLeft: '0.5em',
   },
   socialIcons: {
     fontSize: '4vh',

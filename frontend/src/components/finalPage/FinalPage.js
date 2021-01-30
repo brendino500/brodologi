@@ -1,7 +1,7 @@
 import React from 'react'
+import Fade from 'react-reveal/Fade'
 import { Typography, Switch, ThemeProvider } from '@material-ui/core'
 import { FiGithub, FiLink, FiTwitter, FiLinkedin } from 'react-icons/fi'
-import { FaLinkedin } from 'react-icons/fa'
 
 import Links from './Links'
 import useStyles from './styles/finalPageStyles'
@@ -52,42 +52,44 @@ export default function FinalPage() {
 
   return (
     <ThemeProvider theme={colorTheme}>
-      <div>
-        <div className={classes.switchContainer}>
-          <Typography className={classes.languageOption}>EN</Typography>
-          <Switch
-            className={classes.switch}
-            checked={isNorwegian}
-            onChange={handleChange}
-            name="checkedNorwegian"
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-          <Typography className={classes.languageOption}>NOR</Typography>
+      <Fade cascade>
+        <div>
+          <div className={classes.switchContainer}>
+            <Typography className={classes.languageOption}>EN</Typography>
+            <Switch
+              className={classes.switch}
+              checked={isNorwegian}
+              onChange={handleChange}
+              name="checkedNorwegian"
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+            <Typography className={classes.languageOption}>NOR</Typography>
+          </div>
+          {getText()}
+          <div className={classes.socialLinks}>
+            <Links
+              website="https://github.com/brendino500"
+              icon={github}
+              social="Github"
+            />
+            <Links
+              website="https://www.brendaty.com/"
+              icon={personal}
+              social="Portfolio"
+            />
+            <Links
+              website="https://twitter.com/btcodes"
+              icon={twitter}
+              social="@btcodes"
+            />
+            <Links
+              website="https://www.linkedin.com/in/brendaty/"
+              icon={linkedIn}
+              social="LinkedIn"
+            />
+          </div>
         </div>
-        {getText()}
-        <div className={classes.socialLinks}>
-          <Links
-            website="https://github.com/brendino500"
-            icon={github}
-            social="Github"
-          />
-          <Links
-            website="https://www.brendaty.com/"
-            icon={personal}
-            social="Portfolio"
-          />
-          <Links
-            website="https://twitter.com/btcodes"
-            icon={twitter}
-            social="@btcodes"
-          />
-          <Links
-            website="https://www.linkedin.com/in/brendaty/"
-            icon={linkedIn}
-            social="LinkedIn"
-          />
-        </div>
-      </div>
+      </Fade>
     </ThemeProvider>
   )
 }
