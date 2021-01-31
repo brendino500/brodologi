@@ -15,13 +15,13 @@ export default function LeftDrawer({ isOpen, onClose }) {
     >
       <div className={classes.buttonList}>
         <Link to="/" className={classes.link}>
-          <Button className={classes.sideMenu}>Hjem</Button>
+          <Button className={classes.sideMenuText}>Hjem</Button>
         </Link>
         <Link to="/butikk" className={classes.link}>
-          <Button className={classes.sideMenu}>Butikk</Button>
+          <Button className={classes.sideMenuText}>Butikk</Button>
         </Link>
         <Link to="/omkring" className={classes.link}>
-          <Button className={classes.sideMenu}>Omkring</Button>
+          <Button className={classes.sideMenuText}>Omkring</Button>
         </Link>
       </div>
     </Drawer>

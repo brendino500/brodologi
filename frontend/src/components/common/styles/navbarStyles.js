@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '40vh',
     textAlign: 'center',
   },
-  sideMenu: {
+  sideMenuText: {
     fontFamily: 'Montserrat',
     textTransform: 'uppercase',
     fontSize: '3vh',
