@@ -23,7 +23,6 @@ export default function BreadCardNavbar() {
   const [itemsInBasket, setItemsInBasket] = React.useState([])
 
   React.useEffect(() => {
-    console.log('original basket', basketState.basket)
     let basketWithoutDuplicates = []
     basketState.basket.forEach((item) => {
       let unique = true
@@ -37,20 +36,16 @@ export default function BreadCardNavbar() {
         basketWithoutDuplicates.push(item)
       }
     })
-    console.log('adam', basketWithoutDuplicates)
-    const quantity = {}
 
+    const quantity = {}
     for (let i = 0; i < basketState.basket.length; i++) {
       let num = basketState.basket[i]
       quantity[num._id] = quantity[num._id] ? quantity[num._id] + 1 : 1
     }
-    console.log('quantity', quantity)
     basketWithoutDuplicates = basketWithoutDuplicates.map((x) => {
       x.quantity = quantity[x._id]
       return x
     })
-    console.log('uniq basket', basketWithoutDuplicates)
-    // pass the mapped array into setItemsInBasket
     setItemsInBasket(basketWithoutDuplicates)
   }, [basketState.basket])
 
@@ -74,7 +69,7 @@ export default function BreadCardNavbar() {
 
   return (
     <Container className={classes.root}>
-      {basketState.basket.map((bread, breadIndex) => {
+      {itemsInBasket.map((bread, breadIndex) => {
         if (bread === undefined) {
           console.log('Bread ID not found')
         } else {
@@ -104,6 +99,9 @@ export default function BreadCardNavbar() {
                       <div>
                         <Typography className={classes.breadName} noWrap>
                           {bread.name}
+                        </Typography>
+                        <Typography className={classes.breadName} noWrap>
+                          Mengde: {bread.quantity}
                         </Typography>
                         <Typography className={classes.price}>
                           {bread.price} KR
