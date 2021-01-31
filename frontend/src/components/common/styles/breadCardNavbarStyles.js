@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   image: {
-    height: 80,
+    height: 90,
     width: 80,
     [theme.breakpoints.between('xs', 'sm')]: {
       height: 65,
@@ -47,9 +47,9 @@ const useStyles = makeStyles((theme) => ({
   card: {
     elevation: 0,
     margin: 1,
-    height: 80,
+    height: 90,
     [theme.breakpoints.between('xs', 'sm')]: {
-      height: 65,
+      height: 80,
     },
   },
   cardContent: {

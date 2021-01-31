@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     height: '60vh',
+    [theme.breakpoints.between('sm', 'md')]: {
+      height: '60vh',
+      width: '50vw',
+    },
     [theme.breakpoints.between('xs', 'sm')]: {
       height: '40vh',
     },

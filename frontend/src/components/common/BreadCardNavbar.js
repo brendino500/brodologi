@@ -23,7 +23,30 @@ export default function BreadCardNavbar() {
   const [itemsInBasket, setItemsInBasket] = React.useState([])
 
   React.useEffect(() => {
-    setItemsInBasket(basketState.basket)
+    let basketWithoutDuplicates = []
+    basketState.basket.forEach((item) => {
+      let unique = true
+      for (let i = 0; i < basketWithoutDuplicates.length; i++) {
+        if (basketWithoutDuplicates[i]._id === item._id) {
+          unique = false
+          break
+        }
+      }
+      if (unique) {
+        basketWithoutDuplicates.push(item)
+      }
+    })
+
+    const quantity = {}
+    for (let i = 0; i < basketState.basket.length; i++) {
+      let num = basketState.basket[i]
+      quantity[num._id] = quantity[num._id] ? quantity[num._id] + 1 : 1
+    }
+    basketWithoutDuplicates = basketWithoutDuplicates.map((x) => {
+      x.quantity = quantity[x._id]
+      return x
+    })
+    setItemsInBasket(basketWithoutDuplicates)
   }, [basketState.basket])
 
   const handleClickDelete = (breadID, breadName) => {
@@ -43,11 +66,10 @@ export default function BreadCardNavbar() {
       breadName: open.breadName,
     })
   }
-  console.log(itemsInBasket)
 
   return (
     <Container className={classes.root}>
-      {basketState.basket.map((bread, breadIndex) => {
+      {itemsInBasket.map((bread, breadIndex) => {
         if (bread === undefined) {
           console.log('Bread ID not found')
         } else {
@@ -78,8 +100,11 @@ export default function BreadCardNavbar() {
                         <Typography className={classes.breadName} noWrap>
                           {bread.name}
                         </Typography>
+                        <Typography className={classes.breadName} noWrap>
+                          Mengde: {bread.quantity}
+                        </Typography>
                         <Typography className={classes.price}>
-                          {bread.price} KR
+                          {bread.price * bread.quantity} KR
                         </Typography>
                       </div>
                     </CardContent>
