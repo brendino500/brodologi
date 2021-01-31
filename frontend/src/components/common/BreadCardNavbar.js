@@ -104,7 +104,7 @@ export default function BreadCardNavbar() {
                           Mengde: {bread.quantity}
                         </Typography>
                         <Typography className={classes.price}>
-                          {bread.price} KR
+                          {bread.price * bread.quantity} KR
                         </Typography>
                       </div>
                     </CardContent>

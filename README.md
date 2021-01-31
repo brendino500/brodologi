@@ -44,3 +44,4 @@
 - [React-Reveal](https://www.react-reveal.com/)
 - [Material UI](https://material-ui.com/)
 - [Eugen Cazacu](https://www.youtube.com/watch?v=hhAT0CJDWqM&t=1525s)
+- [Trines Matblogg](https://trinesmatblogg.no/)

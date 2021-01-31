@@ -2,6 +2,7 @@ import React from 'react'
 import Fade from 'react-reveal/Fade'
 import { Typography, Switch, ThemeProvider } from '@material-ui/core'
 import { FiGithub, FiLink, FiTwitter, FiLinkedin } from 'react-icons/fi'
+import { GiCroissant } from 'react-icons/gi'
 
 import Links from './Links'
 import useStyles from './styles/finalPageStyles'
@@ -35,7 +36,7 @@ export default function FinalPage() {
           <Typography className={classes.title}>Hi, I'm Brenda</Typography>
           <Typography className={classes.text}>
             I'm a software developer living in London. Unfortunately this bakery
-            isn't real and I definitely can't bake these myself!
+            isn't real and I'm too inept to attempt to bake these myself!
           </Typography>
           <Typography className={classes.text}>
             If you like what you see, give me a stalk:
@@ -49,6 +50,7 @@ export default function FinalPage() {
   const personal = <FiLink className={classes.socialIcons} />
   const linkedIn = <FiLinkedin className={classes.socialIcons} />
   const twitter = <FiTwitter className={classes.socialIcons} />
+  const foodBlog = <GiCroissant className={classes.socialIcons} />
 
   return (
     <ThemeProvider theme={colorTheme}>
@@ -86,6 +88,11 @@ export default function FinalPage() {
               website="https://www.linkedin.com/in/brendaty/"
               icon={linkedIn}
               social="LinkedIn"
+            />
+            <Links
+              website="https://trinesmatblogg.no/"
+              icon={foodBlog}
+              social="Trines Matblogg"
             />
           </div>
         </div>
