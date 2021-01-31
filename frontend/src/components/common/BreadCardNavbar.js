@@ -23,7 +23,35 @@ export default function BreadCardNavbar() {
   const [itemsInBasket, setItemsInBasket] = React.useState([])
 
   React.useEffect(() => {
-    setItemsInBasket(basketState.basket)
+    console.log('original basket', basketState.basket)
+    let basketWithoutDuplicates = []
+    basketState.basket.forEach((item) => {
+      let unique = true
+      for (let i = 0; i < basketWithoutDuplicates.length; i++) {
+        if (basketWithoutDuplicates[i]._id === item._id) {
+          unique = false
+          break
+        }
+      }
+      if (unique) {
+        basketWithoutDuplicates.push(item)
+      }
+    })
+    console.log('adam', basketWithoutDuplicates)
+    const quantity = {}
+
+    for (let i = 0; i < basketState.basket.length; i++) {
+      let num = basketState.basket[i]
+      quantity[num._id] = quantity[num._id] ? quantity[num._id] + 1 : 1
+    }
+    console.log('quantity', quantity)
+    basketWithoutDuplicates = basketWithoutDuplicates.map((x) => {
+      x.quantity = quantity[x._id]
+      return x
+    })
+    console.log('uniq basket', basketWithoutDuplicates)
+    // pass the mapped array into setItemsInBasket
+    setItemsInBasket(basketWithoutDuplicates)
   }, [basketState.basket])
 
   const handleClickDelete = (breadID, breadName) => {
@@ -43,7 +71,6 @@ export default function BreadCardNavbar() {
       breadName: open.breadName,
     })
   }
-  console.log(itemsInBasket)
 
   return (
     <Container className={classes.root}>
