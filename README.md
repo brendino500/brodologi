@@ -4,7 +4,7 @@
 
 ## Overview
 
-- View the project [here](#)
+- View the project [here](https://brodologi.herokuapp.com/)
 - Ecommerce site coded in React, MongoDB and Material UI.
 - I wanted to focus on using **`useContext` and `useReducer`** hooks.
 - Since my aims were to **use new hooks**, I didn't concentrate on styling.
