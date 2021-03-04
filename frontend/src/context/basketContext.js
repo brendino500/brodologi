@@ -34,6 +34,7 @@ const reducer = (state, action) => {
       throw new Error()
   }
 }
+
 export const BasketProvider = (props) => {
   const [basketState, basketDispatch] = useReducer(reducer, initialState)
 
